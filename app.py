@@ -1,4 +1,11 @@
 import streamlit as st
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt # !pip install matplotlib
 
-x = st.slider('Select a value')
-st.write(x, ' squared is ', x * x)
+st.title("map")
+df = pd.DataFrame(np.random.randn(500, 2) / [50, 50] + [37.36, -122.4], colums=['lat', 'long'])
+st.map(df)
+# x = st.slider('Select a value')
+# st.write(x, ' squared is ', x * x)
+
