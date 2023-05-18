@@ -1,8 +1,8 @@
 import streamlit as st
 
 
-ded = {"bp":"대전제", "spd":"소전제", "rd":"결과"}
-ind = {"indf":"개별적 사실", "spi":"소전제", "ri":"결과"}
+ded = {"bp":"대전제", "spd":"연역법 소전제", "rd":"연역법 결과"}
+ind = {"indf":"개별적 사실", "spi":"귀납법 소전제", "ri":"귀납법 결과"}
 
 tab1, tab2= st.tabs(['연역법' , '귀납법'])
 
