@@ -1,15 +1,28 @@
 import streamlit as st
 import bard
 
-# Bard API 키를 생성합니다.
-# https://bard.ai/docs/keys
+url = 'https://bard.google.com/'
+key = 'sb41f691c-ee31-4c6c-a2d1-d320b6be293d'
 
-# Streamlit 앱에서 Bard API 키를 설정합니다.
-st.set_credentials("https://bard.google.com/", "b41f691c-ee31-4c6c-a2d1-d320b6be293d")
+deduction = {'대전제':'0', '소전제':'0', '결론':'0'}
+induction = {'개별적 사실':'0', '소전제':'0', '결론':'0'}
+true = True
 
-# Bard API를 호출합니다.
-prompt = "Write a story about a dragon"
-response = bard.generate(prompt, max_tokens=100)
+tab1, tab2= st.tabs(['연역법' , '귀납법']) # 탭 이름 1: 연역법, 2: 귀납법
 
-# Bard API의 응답을 Streamlit 앱에 표시합니다.
-st.write(response)
+with tab1: #tab 1 표시될 내용
+    st.write("연역법")
+    st.write("대전제 입력: ")
+    bp = st.text_input("대전제 입력: ")
+    deduction['대전제'] = bp
+    sp = st.text_input("소전제 입력: ")
+    deduction['소전제'] = sp
+    st.write("결론: ", deduction['결론'])
+    
+with tab2: #tab 2 표시될 내용
+    st.write("귀납법")
+    indf = st.text_input("개별적 사실 입력: ")
+    induction['개별적 사실'] = indf
+    sp = st.text_input("소전제 입력: ")
+    induction['소전제'] = sp
+    st.write("결론: ", induction['결론'])
