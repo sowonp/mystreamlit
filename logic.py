@@ -6,7 +6,7 @@ import requests
 
 # API URL과 키를 설정합니다.
 url = 'https://api.openai.com/v1/engines/davinci/completions'
-key = 'YOUR API KEY'
+key = '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'
 
 # 사용자 입력을 받습니다.
 prompt = st.text_input('Enter a prompt:')
