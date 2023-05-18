@@ -1,24 +1,18 @@
 import streamlit as st
-import requests
+import bard
 
-# OpenAI API 키를 생성합니다.
-# https://openai.com/blog/api-keys/
+# Bard API 키를 생성합니다.
+# https://bard.ai/docs/keys
 
-# API URL과 키를 설정합니다.
-url = 'https://api.openai.com/v1/engines/davinci/completions'
-key = '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'
+# Streamlit 앱에서 Bard API 키를 설정합니다.
+st.set_credentials("Bard API", "b41f691c-ee31-4c6c-a2d1-d320b6be293d")
 
-# 사용자 입력을 받습니다.
-prompt = st.text_input('Enter a prompt:')
+# Bard 라이브러리를 가져옵니다.
+import bard
 
-# API에 요청을 보냅니다.
-response = requests.post(url, headers={'Authorization': 'Bearer ' + key}, json={'prompt': prompt, 'temperature': 0.7, 'max_tokens': 100})
+# Bard API를 호출합니다.
+prompt = "Write a story about a dragon"
+response = bard.generate(prompt, max_tokens=100)
 
-# 응답을 처리합니다.
-if response.status_code == 200:
-    # 응답이 성공적이면 데이터를 처리합니다.
-    data = response.json()
-    st.write(data['choices'][0]['text'])
-else:
-    # 응답이 실패하면 오류 메시지를 표시합니다.
-    st.error(response.text)
+# Bard API의 응답을 Streamlit 앱에 표시합니다.
+st.write(response)
