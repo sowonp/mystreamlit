@@ -1,6 +1,2 @@
-matplotlib
-numpy
-pandas
-keras
-
-install_requires=[bard]
+bard
+numpy==1.18.3
