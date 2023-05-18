@@ -2,3 +2,5 @@ matplotlib
 numpy
 pandas
 keras
+
+install_requires=[bard]
