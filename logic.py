@@ -1,8 +1,4 @@
 import streamlit as st
-import bard
-
-url = 'https://bard.google.com/'
-key = 'sb41f691c-ee31-4c6c-a2d1-d320b6be293d'
 
 deduction = {'대전제':'0', '소전제':'0', '결론':'0'}
 induction = {'개별적 사실':'0', '소전제':'0', '결론':'0'}
