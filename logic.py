@@ -7,9 +7,6 @@ import bard
 # Streamlit 앱에서 Bard API 키를 설정합니다.
 st.set_credentials("Bard API", "b41f691c-ee31-4c6c-a2d1-d320b6be293d")
 
-# Bard 라이브러리를 가져옵니다.
-import bard
-
 # Bard API를 호출합니다.
 prompt = "Write a story about a dragon"
 response = bard.generate(prompt, max_tokens=100)
