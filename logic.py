@@ -1,6 +1,5 @@
 import streamlit as st
 
-
 ded = {"bp":"대전제", "spd":"연역법 소전제", "rd":"연역법 결과"}
 ind = {"indf":"개별적 사실", "spi":"귀납법 소전제", "ri":"귀납법 결과"}
 
