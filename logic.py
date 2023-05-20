@@ -1,7 +1,7 @@
 import openai
 import streamlit as st
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 messages = []
 content = ""
@@ -31,26 +31,30 @@ class MultiApp:
         app['function']()
 def g():
     st.title("귀납법 프로그램 실행합니다.")
-    Ginfer1 = st.text_input("개별적 사실", value = "여러 문장 입력시 , 로 구분해서 쓰시오")
-    Ginfer2 = st.text_input("소전제")
+    Ginfer1 = st.text_input("개별적 사실", value="여러문장 입력시 ,로 구분해서 쓰시오")
+    Ginfer2 = st.text_input("소전체")
     if st.button("입력"):
-        content = "귀납법으로 추론, 개별적 사실은 {Ginfer1}, 소전제는 {Ginfer2}, 결론만 출력"
+        content = f"귀납법으로 추론, 개별적 사실은 {Ginfer1}, 소전제는 {Ginfer2}, 결론만 출력"
+        return content
 
 def y():
     st.title("연역법 프로그램 실행합니다.")
-    Yinfer1 = st.text_input("대전제")
-    Yinfer2 = st.text_input("소전제")
+    Yinfer1 = st.text_input("대전체")
+    Yinfer2 = st.text_input("소전체")
     if st.button("입력"):
-        content = "연역법으로 추론, 대전제는 {Yinfer1} 소전제는 {Yinfer2}, 결론만 출력"
+        content = f"연역법으로 추론, 대전제는 {Yinfer1}, 소전제는 {Yinfer2}, 결론만 출력"
+        return content
+
 infer = MultiApp()
 infer.add_app("귀납법 입력", g)
 infer.add_app("연역법 입력", y)
 infer.run()
 
-completion = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
-    messages = [{"role":"user", "content":content}]
-)
-chat_response = completion.choices[0].message.content
-st.write(chat_response)
-messages = [{"role": "assistant", "content": chat_response}]
+if content:
+    completion = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": content}]
+    )
+    chat_response = completion.choices[0].message.content
+    st.write(chat_response)
+    messages = [{"role": "assistant", "content": chat_response}]
