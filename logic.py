@@ -18,27 +18,23 @@ else:
 
 if n > 0:
     infer = []
-    for i in range(n):
-        infer.append(st.text_input("개별적 사실"))
+    if st.button("입력", key="button1"):
+        for i in range(n):
+            infer.append(st.text_input(f"개별적 사실", {infer[i]}, value = "", key={i}))
+        Qinfer = st.text_input("소전제")
+        
+        if st.button("출력", key="button2"):
+            for j in range(n):
+                content = f"귀납법으로 추론, 개별적 사실은 {infer[j]}, 소전제는 {Qinfer}, 결론만 출력"
+            completion = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system", "content": "You are a helpful assistant."},
+                    {"role": "user", "content": content}
+                ]
+            )
+
+            chat_response = completion.choices[0].message.content
+            st.text(chat_response)
 else:
     infer = []
-
-if st.button("입력", key="button1"):
-    for i in range(n):
-        infer[i] = st.text_input(f"개별적 사실", {infer[i]}, value = "", key={i})
-    Qinfer = st.text_input("소전제")
-    
-    if st.button("출력", key="button2"):
-        for j in range(n):
-            content = f"귀납법으로 추론, 개별적 사실은 {infer[j]}, 소전제는 {Qinfer}, 결론만 출력"
-        completion = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": content}
-            ]
-        )
-
-        # 응답 결과 표시
-        chat_response = completion.choices[0].message.content
-        st.text(chat_response)
