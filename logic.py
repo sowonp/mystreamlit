@@ -11,7 +11,10 @@ st.title("수리논리학 계산기")
 
 n = 0
 n = st.text_input("개별적 사실을 몇 개 입력하시겠습니까? (최대 5개)", key="infer")
-n = int(n.split()[0])
+if n == "" or n == "0":
+    n = 0
+else:
+    n = int(n.split()[0])
 
 if n > 0:
     infer = []
