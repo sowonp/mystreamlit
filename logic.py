@@ -11,7 +11,7 @@ st.title("수리논리학 계산기")
 if st.text_input("개별적 사실을 몇 개 입력받겠습니까? (최대 5개)"):
     infer = []
     for i in range(int(st.text_input())):
-        infer.append(st.text_input("개별적 사실")
+        infer.append(st.text_input("개별적 사실"))
 else:
     infer = []
 
