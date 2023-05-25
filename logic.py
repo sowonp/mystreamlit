@@ -6,10 +6,14 @@ openai.api_key = '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'
 messages = []
 content = ""
 chat_response = ""
-infer = []
 
 st.title("수리논리학 계산기")
-n = int(st.text_input("개별적 사실을 몇 개 입력받겠습니까? (최대 5개)", value="5"))
+if st.text_input("개별적 사실을 몇 개 입력받겠습니까? (최대 5개)"):
+    infer = []
+    for i in range(int(st.text_input())):
+        infer.append(st.text_input("개별적 사실")
+else:
+    infer = []
 
 if st.button("입력", key="button1"):
     for i in range(n):
