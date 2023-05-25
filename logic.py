@@ -20,7 +20,7 @@ if n > 0:
     infer = []
     if st.button("입력", key="button1"):
         for i in range(n):
-            infer.append(st.text_input(f"개별적 사실", {infer[i]}, value = "", key={i}))
+            infer[i] = st.text_input(f"개별적 사실", {infer[i]}, value = "", key={i})
         Qinfer = st.text_input("소전제")
         
         if st.button("출력", key="button2"):
