@@ -1,2 +1,3 @@
+openai
 bard
 numpy==1.18.3
