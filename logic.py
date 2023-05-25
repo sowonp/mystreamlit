@@ -20,12 +20,12 @@ if n > 0:
     infer = []
     if st.button("입력", key="button1"):
         for i in range(n):
-            infer[i] = st.text_input(f"개별적 사실", {infer[i]}, value = "", key={i})
-        Qinfer = st.text_input("소전제")
+            infer[i] = st.text_input(f"개별적 사실", {infer[i]}, value = "", key=f"infer{i}")
+        Qinfer = st.text_input("소전제", value = "", key="Qinfer")
         
-        if st.button("출력", key="button2"):
-            for j in range(n):
-                content = f"귀납법으로 추론, 개별적 사실은 {infer[j]}, 소전제는 {Qinfer}, 결론만 출력"
+        if st.button("입력", key="button2"):
+            for i in range(n):
+                content = f"귀납법으로 추론, 개별적 사실은 {infer[i]}, 소전제는 {Qinfer}, 결론만 출력"
             completion = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=[
