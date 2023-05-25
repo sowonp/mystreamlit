@@ -15,7 +15,6 @@ if n == "" or n == "0":
     n = 0
 else:
     n = int(n.split()[0])
-if st.button("입력", key="number1"):
 
 if n > 0:
     infer = []
