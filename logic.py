@@ -8,9 +8,12 @@ content = ""
 chat_response = ""
 
 st.title("수리논리학 계산기")
-if int(st.text_input("개별적 사실을 몇 개 입력받겠습니까? (최대 5개)")):
+
+n = int(st.text_input("개별적 사실을 몇 개 입력하시겠습니까? (최대 5개)")) or 0
+    
+if n > 0:
     infer = []
-    for i in range(int(st.text_input())):
+    for i in range(n):
         infer.append(st.text_input("개별적 사실"))
 else:
     infer = []
