@@ -9,8 +9,8 @@ chat_response = ""
 
 st.title("수리논리학 계산기")
 
-n = int(st.text_input("개별적 사실을 몇 개 입력하시겠습니까? (최대 5개)"), key="infer") or 0
-    
+n = int(st.text_input("개별적 사실을 몇 개 입력하시겠습니까? (최대 5개)")) or 0
+
 if n > 0:
     infer = []
     for i in range(n):
@@ -34,6 +34,6 @@ if st.button("입력", key="button1"):
             ]
         )
 
-    # 응답 결과 표시
-    chat_response = completion.choices[0].message.content
-    st.text(chat_response)
+        # 응답 결과 표시
+        chat_response = completion.choices[0].message.content
+        st.text(chat_response)
