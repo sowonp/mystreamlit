@@ -3,7 +3,7 @@ import streamlit as st
 st.title("수리논리학 계산기")
 
 if st.button("∧(and)", key="and"):
-    st.text_input(value=str("∧"), key="and_in")
+    st.text_input(value="∧", key="and_in")
 
 if st.button("∨(or)", key="or"):
     st.text_input(value=str("∨"), key="or_in")
