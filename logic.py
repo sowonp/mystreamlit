@@ -6,7 +6,7 @@ if st.button("∧(and)", key="and"):
     st.text_input(label="", value="∧", key="and_in")
 
 if st.button("∨(or)", key="or"):
-    st.text_input(label="", value=char("∨"), key="or_in")
+    st.text_input(label="", value=str("∨"), key="or_in")
     
 if st.button("¬(not)", key="not"):
     st.text_input(label="", value=str("¬"), key="not_in")
