@@ -12,7 +12,7 @@ if st.button("¬(not)", key="not"):
     st.text_input(value=str("¬"), key="not_in")
 
 if st.button("→(imply)", key="imply"):
-    st.text_input(value=str("→"), key="imply_in")
+    st.text_input(label="", value=str("→"), key="imply_in")
 
 if st.button("↔(equal)", key="equal"):
     st.text_input(value=str("↔"), key="equal_in")
