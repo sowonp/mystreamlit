@@ -1,18 +1,17 @@
 import streamlit as st
+import SessionState
 
-st.title("수리논리학 계산기")
+wt = ['initialised text']
+ss = SessionState.get(wt=wt)
 
-if st.button("∧(and)", key="and"):
-    st.text_input(label="∧(and)", value="∧", key="and_in", persist=True)
+st.header('Watchlist')
 
-if st.button("∨(or)", key="or"):
-    st.text_input(label="∨(or)", value="∨", key="or_in", persist=True)
-    
-if st.button("¬(not)", key="not"):
-    st.text_input(label="¬(not)", value="¬", key="not_in", persist=True)
+container1 = st.beta_container()
+sym = container1.text_input('for adding')
+container2 = st.beta_container()
+add_button = container2.button('add')
 
-if st.button("→(imply)", key="imply"):
-    st.text_input(label="→(imply)", value="→", key="imply_in", persist=True)
+if add_button:
+    ss.wt.append(sym)
 
-if st.button("↔(equal)", key="equal"):
-    st.text_input(label="↔(equal)", value="↔", key="equal_in", persist=True)
+st.write(ss.wt)
