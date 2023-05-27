@@ -1,8 +1,7 @@
-from streamlit import button, column
+import streamlit as st
 
 st.title("수리논리학 계산기")
 
-button1 = button("Button 1")
-button2 = button("Button 2")
+buttons = ["∧(and)", "∨(or)", "¬(not)", "→(imply)", "↔(equal)"]
 
-column(button1, button2)
+st.button_group(buttons)
