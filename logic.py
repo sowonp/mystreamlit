@@ -1,8 +1,3 @@
-#Scripts\activate.bat
-#streamlit run app2.py
-
-#레스토랑 = (홈플러스 → (5000 → 라면)) ∧ (홈플러스 → (3000 → 커피)) ∧ ((라면 ∧ 커피) → 라면 세트)
-
 import openai
 import streamlit as st
 
@@ -23,6 +18,8 @@ st.text("¬ ∧ ∨ →")
 
 for i in range(number):
     infer[i] = st.text_input(f"개별적 사실{i+1}", value = "홈플러스 = (5000 → 라면) ∧ (3000 → 커피)", key = f"infer{i}")
+#레스토랑 = (홈플러스 → (5000 → 라면)) ∧ (홈플러스 → (3000 → 커피)) ∧ ((라면 ∧ 커피) → 라면 세트)
+
     
 Ginfer2 = st.text_input("질문", value = "손님 = 레스토랑 → (5000 → 라면 세트)", key = "infer5")
 if st.button("입력", key = "button"):
