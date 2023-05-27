@@ -1,4 +1,3 @@
-import streamlit as st
 from streamlit import button, column
 
 st.title("수리논리학 계산기")
