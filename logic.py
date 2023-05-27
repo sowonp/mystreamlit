@@ -2,7 +2,7 @@ import streamlit as st
 
 st.title("수리논리학 계산기")
 
-buttons = ["∧(and)", '"∨(or)", "∨(or)", "¬(not)", "→(imply)", "↔(equal)"]
+buttons = ["∧(and)", "∨(or)", "∨(or)", "¬(not)", "→(imply)", "↔(equal)"]
 
 if st.button("∧(and)", key="and"):
     st.text_input(value=str("∧"), key="and_in", persist=True)
