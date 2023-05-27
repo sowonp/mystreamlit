@@ -20,4 +20,3 @@ if st.button("↔(equal)", key="equal"):
     st.text_input(value="↔", key="equal_in", persist=True)
     
 
-st.button_group(buttons)
