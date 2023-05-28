@@ -28,7 +28,7 @@ if st.button("입력", key = "button"):
     for i in range(number):
         content1 += f'"{infer[i]}", '
     content1 += f'앞의 문장들은 모두 참이다.'
-    content2 = f’”{Ginfer}"라는 문장을 참 또는 거짓으로 판단해라.'
+    content2 = f'"{Ginfer}"라는 문장을 참 또는 거짓으로 판단해라.'
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
